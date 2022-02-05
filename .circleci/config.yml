@@ -33,9 +33,9 @@ jobs:
           command: |
             npm run frontend:deploy
       - run:
-          name: Back-End preBuild
+          name: Back-End preDeploy
           command: |
-            npm run backend:build
+            npm run backend:predepoly
       - run:
           command: |
             eb deploy
