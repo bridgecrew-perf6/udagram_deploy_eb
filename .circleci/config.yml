@@ -35,7 +35,7 @@ jobs:
       - run:
           name: Back-End preDeploy
           command: |
-            npm run backend:predepoly
+            npm run backend:predeploy
       - run:
           command: |
             eb deploy
