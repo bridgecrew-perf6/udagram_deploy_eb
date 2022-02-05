@@ -1,1 +1,1 @@
-eb init Udagramproject-env --platform node.js --region us-east-1
+eb init udagram-Project --platform node.js --region us-east-1
