@@ -12,33 +12,34 @@ jobs:
       - checkout
       - aws-cli/setup
       - eb/setup
-      - run:
-          name: Front-End Install
-          command: |
-            npm run frontend:install
+      # - run:
+      #     name: Front-End Install
+      #     command: |
+      #       npm run frontend:install
       - run:
           name: Back-End Install
           command: |
             npm run backend:install
-      - run:
-          name: Front-End Build
-          command: |
-            npm run frontend:build
+      # - run:
+      #     name: Front-End Build
+      #     command: |
+      #       npm run frontend:build
       - run:
           name: Back-End Build
           command: |
             npm run backend:build
-      - run:
-          name: Front-End deploy
-          command: |
-            npm run frontend:deploy
+      # - run:
+      #     name: Front-End deploy
+      #     command: |
+      #       npm run frontend:deploy
+      
       # - run:
       #     name: Back-End preDeploy
       #     command: |
       #       npm run backend:predeploy
       - run:
           command: |
-            eb init udagram-Project -r us-east-1 -p node.js-12
-            eb deploy Udagramproject-env
-            eb status
+            cd udagram-api && eb init udagram-Project -r us-east-1 -p node.js-12
+            cd udagram-api && eb deploy Udagramproject-env
+            cd udagram-api && eb status
           name: You may now use the EB CLI within this job
