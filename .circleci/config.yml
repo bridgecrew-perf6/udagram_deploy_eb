@@ -33,13 +33,13 @@ jobs:
       #     command: |
       #       npm run frontend:deploy
       
-      # - run:
-      #     name: Back-End preDeploy
-      #     command: |
-      #       npm run backend:predeploy
       - run:
+          name: Back-End preDeploy
           command: |
-            cd udagram-api && eb init udagram-Project -r us-east-1 -p node.js-12
-            cd udagram-api && eb deploy Udagramproject-env
-            cd udagram-api && eb status
-          name: You may now use the EB CLI within this job
+            npm run backend:predeploy
+      # - run:
+      #     command: |
+      #       cd udagram-api && eb init udagram-Project -r us-east-1 -p node.js-12
+      #       cd udagram-api && eb deploy Udagramproject-env
+      #       cd udagram-api && eb status
+      #     name: You may now use the EB CLI within this job
