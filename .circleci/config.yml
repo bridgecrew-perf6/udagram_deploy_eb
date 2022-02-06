@@ -32,12 +32,13 @@ jobs:
           name: Front-End deploy
           command: |
             npm run frontend:deploy
+      # - run:
+      #     name: Back-End preDeploy
+      #     command: |
+      #       npm run backend:predeploy
       - run:
-          name: Back-End preDeploy
           command: |
-            npm run backend:predeploy
-      - run:
-          command: |
-            eb deploy
+            eb init udagram-Project -r us-east-1 -p node.js-12
+            eb deploy Udagramproject-env
             eb status
           name: You may now use the EB CLI within this job
