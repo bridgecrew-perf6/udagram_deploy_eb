@@ -1,8 +1,17 @@
 [![CircleCI](https://circleci.com/gh/sunhorus/udagram_deploy_eb/tree/main.svg?style=svg)](https://circleci.com/gh/sunhorus/udagram_deploy_eb/tree/main)
+
+
+
 # Udagram
 
 This application is provided to you as an alternative starter project if you do not wish to host your own code done in the previous courses of this nanodegree. The udagram application is a fairly simple application that includes all the major components of a Full-Stack web application.
+#
+## Deployment Specifics
+Link : [Application_Link](http://mydeploymentbucket253015982248.s3-website-us-east-1.amazonaws.com/)
 
+Resources and Screenshots are in the Git `Screenshots` Folder inclouding all required validation reqiured in the project rubric
+
+#
 ## Getting Started
 
 1. Clone this repo locally into the location of your choice.
@@ -31,11 +40,12 @@ The project can run but is missing some information to connect to the database a
 
 Provision the necessary AWS services needed for running the application:
 
-1. In AWS, provision a publicly available RDS database running Postgres. <Place holder for link to classroom article>
-1. In AWS, provision a s3 bucket for hosting the uploaded files. <Place holder for tlink to classroom article>
+1. In AWS, provision a publicly available RDS database running Postgres.
+1. In AWS, provision a s3 bucket for hosting the uploaded files.
 1. Export the ENV variables needed or use a package like [dotnev](https://www.npmjs.com/package/dotenv)/.
 1. From the root of the repo, navigate udagram-api folder `cd starter/udagram-api` to install the node_modules `npm install`. After installation is done start the api in dev mode with `npm run dev`.
-1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. After installation is done start the api in dev mode with `npm run start`.
+1. Without closing the terminal in step 1, navigate to the udagram-frontend `cd starter/udagram-frontend` to intall the node_modules `npm install`. in case of depreciated Dependicy error use `--legacy-bundling` flage.
+After installation is done start the api in dev mode with `npm run start`.
 
 ## Testing
 
@@ -61,6 +71,12 @@ The e2e tests are using Protractor and Jasmine.
 - [Node](https://nodejs.org) - Javascript Runtime
 - [Express](https://expressjs.com/) - Javascript API Framework
 
+
+
+
 ## License
 
 [License](LICENSE.txt)
+
+
+

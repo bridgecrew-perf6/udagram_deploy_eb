@@ -1,23 +1,25 @@
 version: 2.1
 orbs:
+  #installs the required Orbs to execute the required commands in the build enviroment
   node: circleci/node@4.1.0
-  aws-cli: circleci/aws-cli@1.3.1
-  eb: circleci/aws-elastic-beanstalk@2.0.1
+  aws-cli: circleci/aws-cli@1.3.1 # to be able to use aws Cli and deploy FrontEnd files
+  eb: circleci/aws-elastic-beanstalk@2.0.1 # to be able to deploy BackEnd to Elastic Beanstalk
 jobs:
   build:
     docker:
       - image: "cimg/base:stable"
     steps:
+      # To configure the Building Enviroments
       - node/install
       - checkout
       - aws-cli/setup
       - eb/setup
       - run:
-          name: Front-End Install
+          name: Front-End Install #Install Front-End Dependencies 
           command: |
             npm run frontend:install
       - run:
-          name: Back-End Install
+          name: Back-End Install #Install Back-End Dependencies 
           command: |
             npm run backend:install
       - run:
@@ -29,16 +31,10 @@ jobs:
           command: |
             npm run backend:build
       - run:
-          name: Front-End deploy
+          name: Front-End deploy # Run Deployment Sceript to deply Front-End to S3
           command: |
             npm run frontend:deploy
       - run:
-          name: Back-End preDeploy
+          name: Back-End preDeploy # Run Deployment Sceript to deply Back-End to EB
           command: |
             npm run backend:predeploy
-      # - run:
-      #     command: |
-      #       cd udagram-api && eb init udagram-Project -r us-east-1 -p node.js-12
-      #       cd udagram-api && eb deploy Udagramproject-env
-      #       cd udagram-api && eb status
-      #     name: You may now use the EB CLI within this job
