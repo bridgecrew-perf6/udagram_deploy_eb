@@ -7,10 +7,10 @@ orbs:
 jobs:
   build:
     docker:
-      - image: "cimg/base:stable"
+      - image: "cimg/node:14.15.5"
     steps:
       # To configure the Building Enviroments
-      - node/install
+      # - node/install
       - checkout
       - run:
           name: Front-End Install #Install Front-End Dependencies 
@@ -35,7 +35,7 @@ jobs:
       
   deploy:
     docker:
-      - image: "cimg/base:stable"
+      - image: "cimg/node:14.15.5"
     steps:
       - attach_workspace:
           at: /home/circleci/project
